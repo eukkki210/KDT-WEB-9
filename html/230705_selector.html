@@ -21,17 +21,50 @@
         #ex{
             background-color: aquamarine;
         }
-    </style>
 
-    #
+        span.orange {
+            color: orange;
+        }
+
+        li.orange.apple {
+            background-color: antiquewhite;
+        }
+        div > p {
+            color: red;
+        }
+
+        div > ul > .orange {
+            color: orange;
+        }
+
+        div .orange {
+            background-color: orangered
+        }
+
+        /* ul 바로 다음에 있는 div 태그 */
+        ul + div {
+            color: brown;
+        }
+
+        .apple ~ li {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div id="ex" class="">안녕?</div>
-    <span>류승기 크루</span>
+    <div>
+        <div id="ex" class="">안녕?</div>
+        <span>류승기 크루</span>
 
-    <ul>
-        <li>사과</li>
-        <li class="peach">복숭아</li>
-    </ul>
+        <ul>
+            <li class="orange apple">사과</li>
+            <li class="peach">복숭아</li>
+            <li class="orange">오렌지</li>
+        </ul>
+
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
 </body>
 </html>

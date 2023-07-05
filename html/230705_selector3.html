@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 첫번째 하위 요소가 span일 경우 */
+        .fruits span:first-child {
+            color: red;
+        }
+
+        .fruits div:first-child {
+            color: red;
+        }
+
+        .fruits h3:last-child {
+            color: peru;
+        }
+
+        .fruits p:last-child {
+            color: saddlebrown;
+        }
+
+        /* 1부터 시작 */
+        /* .fruits *:nth-child(2) {
+            background-color: honeydew;
+            color: yellow;
+        } */
+
+        .fruits *:nth-child(2n) {
+            background-color: honeydew;
+            color: yellowgreen;
+        }
+
+        .fruits *:nth-child(2n+1) {
+            background-color: hotpink;
+            color: aliceblue;
+        }
+        
+        .fruits *:nth-child(n+2) {
+            background-color: indianred;
+            color: antiquewhite;
+        }
+
+        .fruits *:not(span) {
+            color: seagreen;
+        }
+
+        .example::after {
+            content: "🤦‍♀️";
+        }
+
+        .example::before {
+            content: "🤦";
+        }
+
+        /* 속성이름=속성값 {} */
+        /* [속성이름] {} */
+        [disabled] {
+            color: seashell;
+        }
+
+        [type=text] {
+            background-color: indigo;
+        }
+
+        [value] {
+            color: aqua;
+        }
+
+        /* 속성값을 변수화 */
+        /* 변수: 특정 값을 저장하는 공간 */
+        :root {
+            --main-color : orange;
+            --background-color : blue;
+            --sub-color : rgba(255, 166, 0, 0.527);
+            --big-font-size : 30px;
+        }
+
+        div {
+            color: var(--main-color);
+            font-weight: 900;
+            font-size: var(--big-font-size);
+        }
+
+        p {
+            background-color: var(--background-color);
+            color: var(--sub-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="example">
+        <!-- before에 해당하는 내용 -->
+        바로가기
+        <!-- after에 해당하는 내용 -->
+    </div>
+
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>복숭아</h3>
+    </div>
+
+    <input type="text" value="HEROPY"> 
+    <input type="password" value="1234">
+    <input type="text" value="ABCD" disabled>
+
+    <p>안녕</p>
+</body>
+</html>

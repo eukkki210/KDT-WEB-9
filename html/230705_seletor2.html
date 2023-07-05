@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스 선택자</title>
+    <style>
+        a:hover {
+            color: red;
+        }
+        
+        a:active {
+            color: yellowgreen;
+        }
+
+        a:visited {
+            color: grey;
+        }
+
+        button {
+            background-color: rgb(119, 45, 45);
+            color: burlywood;
+        }
+
+        button:hover {
+            background-color: burlywood;
+            color: whitesmoke;
+        }
+
+        button:active {
+            background-color: aliceblue;
+            color: blue;
+        }
+
+        input:focus {
+            background-color: orchid;
+        }
+
+        div .name-input:focus {
+            color: antiquewhite;
+        }        
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <button type="button">제출</button>
+    <div>
+        <input class="name-input" type="text" name="name" placeholder="이름을 입력하세요"/>
+    </div>    
+</body>
+</html>
