@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 적용해보기</title>
+    <style>
+        span {
+            color: white;
+            background-color: black;
+        }
+
+        /* 공통적인거 묶기 */
+        div {
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+            width: 100px;
+        }
+        /* 이런 식으로 바꾸기 */
+    </style>
+</head>
+<body>
+    <!-- 블록: div, h1, p 등; 사용 가능한 최대 너비
+        인라인: span, b, strong 등; 너비와 높이를 내부 컨텐츠 크기만큼 설정-->
+    <span>무지개</span>
+    <br>
+    <div class="red"> </div>
+    <!-- 내가한 방법 -->
+    <div style="background-color: orange; padding: 2%; width: 40px;"> </div>
+    <div style="background-color: yellow; padding: 2%; width: 80px;"> </div>
+    <div style="background-color: green; padding: 2%; width: 120px;"> </div>
+    <div style="background-color: blue; padding: 2%; width: 160px;"> </div>
+    <div style="background-color: darkblue; padding: 2%; width: 200px;"> </div>
+    <div style="background-color: purple; padding: 2%; width: 240px;"> </div>   
+</body>
+</html>
