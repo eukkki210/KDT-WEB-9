@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+        
+        @font-face {
+            font-family: 'SUITE-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        :root {
+            font-size: 16px;
+        }
+
+        main {
+            font-size: 20px;
+            text-align: center;
+        }
+        /* div {
+            font-weight: 100;
+        } */
+
+        .font-px {
+            font-size: 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        /* 가장 가까이 있는 부모(main)의 폰트 사이즈 */
+        .font-em {
+            font-size: 1.5em;
+            font-family: serif;
+            font-weight: 900;
+        }
+        /* 가장 상위(root/html)의 폰트 사이즈 기준 */
+        .font-rem {
+            font-size: 1.5rem;
+            line-height: 2;
+            font-family: 'SUITE-Regular';
+            font-weight: 700;
+            text-align: left;
+        }
+        /* 퍼센트의 기준은 부모 */
+        .font-per {
+            font-size: 100%;
+            font-family: 'Nanum Gothic', sans-serif;
+            color: #FFD9EC;
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: overline;
+        }
+        
+        del {
+            text-decoration: none;
+        }
+        /* span, div 기본값
+        span {
+            display: inline;
+        }
+        div {
+            display: block;
+        } */
+        
+        .inline-block {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <del>델 태그</del>
+    <main>
+        <div class="font-px">안녕하세요</div>
+        <div class="font-em">안녕하세요</div>
+        <div class="font-rem">안녕하세요</div>
+        <div class="font-per">안녕하세요</div>
+    </main>    
+    <a href="a">에이 태그</a>
+    <!-- 인라인 요소 안에 블록 요소 X -->
+
+    <div>
+        <span></span>
+    </div>
+
+    <div style="background-color: silver; width: 100px;">aaa</div>
+    <!-- 인라인 특) width height가 붙지 않음 써도 안 커짐, 마진 값이 높지 않음 -->
+    <span style="background-color: chartreuse; width: 100px;">bbb</span>
+    
+    <div style="display: inline-block; background-color: aquamarine; width: 100px;">ccc</div>
+
+</body>
+</html>
