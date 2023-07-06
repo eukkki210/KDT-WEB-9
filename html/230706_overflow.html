@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오버플로우</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background-color: blue;
+            overflow-x: auto;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 130px;
+            margin: 35px;
+            background-color: orange;
+        }
+
+        .flex-box {
+            height: 500px;
+            background-color: darkgoldenrod;
+            /* 자식 요소를 inline-block 요소로 만든다 */
+            display: flex;
+            /* flex에서만 사용 가능 가로 요소 정렬 */
+            justify-content: center;
+            /* flex에서만 사용 가능 세로 요소 정렬 */
+            align-items: center;
+            /* flex-direction이 row에서 column으로 바뀌면 가로 세로 바뀜 */
+            /* flex-direction: column; */
+        }
+
+        .child-box {
+            width: 100px;
+            height: 100px;
+            background-color: darkcyan;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"><div class="box2"></div></div>
+    <br />
+    <div class="flex-box">
+        <div class="child-box"></div>
+        <div class="child-box"></div>
+        <div class="child-box"></div>
+    </div>
+</body>
+</html>

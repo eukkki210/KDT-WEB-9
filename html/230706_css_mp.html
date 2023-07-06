@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .block {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            color: azure;
+            font-size: 20px;
+
+            /* 순서 */
+            /* margin-top: 100px;
+            margin-right: 20px;
+            margin-bottom: 50px;
+            margin-left: 100px; */
+
+            margin: 100px 20px 50px 100px;
+
+            /* padding-top: 10px;
+            padding-left: 50px; */
+            
+            padding: 10px 0 0 50px;
+        }
+
+        .inline {
+            background-color: chocolate;
+            color: beige;
+            margin-top: 100px;
+            /* margin-left: 100px; */
+            padding-top: 10px;
+            padding-left: 20px;
+            width: 100px;
+        }
+
+        .mm-width {
+            background-color: coral;
+            color: bisque;
+            font-size: 30px;
+            line-height: 100px;
+            /* vw; 뷰포트(브라우저 가로 길이)의 % width */
+            width: 90vw;
+            height: 100px;
+            /* max-width: 100px; */
+            /* min-width: 10px; */
+            width: calc(100vw - 100px);
+            margin: auto;
+            /* padding: auto; 별다른 기능 없음 */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- margin은 외부 여백, padding은 내부 여백 -->
+    <div class="block">안녕</div>
+    <span class="inline">안녕</span>
+
+    <div class="mm-width">안녕</div>    
+</body>
+</html>

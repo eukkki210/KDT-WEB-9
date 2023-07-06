@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+
+        .border-1 {
+            border-color: blue blueviolet brown transparent;
+            border-style: solid dashed;
+            border-width: 10px 5px;
+        }
+
+        .border-2 {
+            border-left: 5px solid burlywood;
+
+            border-top-color: cornsilk;
+            border-top-style: dashed;
+            border-top-width: 10px;
+            border-radius: 25%;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            padding: 20px;
+            border: 10px solid cyan;
+            margin: 20px;
+            display: none;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 10px solid cyan;
+            margin: 20px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="box border-1"></div>
+    <br />
+    <div class="box border-2"></div>
+    <br />
+    <div class="box content-box">안녕</div>
+    <br />
+    <div class=" box border-box">안녕</div>
+</body>
+</html>
