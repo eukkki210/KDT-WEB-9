@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            /* 자식 요소를 inline-block 요소로 만듬 */
+            display: flex;
+            /* height: 600px; */
+            /* flex-direction: column-reverse; */
+            /* justify-content: space-evenly; */
+            /* align-items: flex-end; */
+            align-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .container > div,
+        .container-1 > div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .gold {
+            background-color: gold;
+        }
+
+        .orangered {
+            background-color: orangered;
+        }
+
+        .yellowgreen {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gold"></div>
+        <div class="orangered"></div>
+        <div class="yellowgreen"></div>        
+        <div class="gold"></div>
+        <div class="orangered"></div>
+        <div class="yellowgreen"></div>
+        <div class="gold"></div>
+        <div class="orangered"></div>
+        <div class="yellowgreen"></div>
+        <!-- <div class="gold"></div>
+        <div class="orangered"></div>
+        <div class="yellowgreen"></div> -->
+    </div>
+
+    <div class="container-1">
+        <div class="gold"></div>
+        <div class="orangered"></div>
+        <div class="yellowgreen"></div>  
+    </div>
+</body>
+</html>
