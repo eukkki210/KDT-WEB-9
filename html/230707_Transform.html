@@ -8,6 +8,10 @@
         img {
             width: 100px;
             height: 100px;
+            transition-property: transform;
+            transition-duration: 3s;
+            transition-timing-function: linear;
+            transition-delay: 2s;
         }
 
         img#translate:active {
@@ -26,9 +30,23 @@
         img#skew:active {
             transform: skew(-45deg);
         }
+
+        .box {
+            margin-left: 0;
+            background-color: lavenderblush;
+            width: 100px;
+            height: 100px;transition: margin-left 2s;
+        }
+
+        .box:hover {
+            width: 200px;
+            height: 200px;
+            margin-left: 100px;
+        }
     </style>
 </head>
 <body>
+    <div class="box"></div>
     <div>
         <img
             id="translate"
