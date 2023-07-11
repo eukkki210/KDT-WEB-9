@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // continue
+        let fruit = ['apple', 'banana', 'orange', 'peach'];
+        for (let i = 0; i < fruit.length; i++) {
+            if (fruit[i] == "banana") {
+                continue;
+            }            
+            console.log(fruit[i]);
+        }
+
+        // 1~5의 합
+        let number = 5;
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+            sum += i;
+        }
+        console.log(sum);
+
+        for (let i=5; i > 0; i-=2) {
+            console.log(i);
+        }
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                console.log(i, j);
+            }            
+        }
+
+        let index = 0;
+        while (index < fruit.length) {
+            console.log(fruit[index]);
+            index++;
+        }
+
+        let num;
+        while (isNaN(num)) {
+            num = Number(prompt("숫자를 입력하세요"));
+            console.log(num);
+        }
+
+        let numbers;
+        while (true) {
+            numbers = Number(prompt("10 이상의 숫자를 입력하세요"))
+            if (numbers >= 10) {
+                break;
+            }
+        }
+        // isNan()
+        // 사용자가 숫자를 입력하길 기대하면서,
+        // 1~숫자까지의 합을 구하는 코드
+
+        // 구구단 while 버전
+        let i = 2, j = 1;
+        
+        while (i < 10) {
+            while (j < 10) {
+                console.log(i, "x", j, "=", i*j);
+                j=+;
+            }
+            i++;
+            j = 1;
+        } 
+    </script>
+</body>
+</html>
