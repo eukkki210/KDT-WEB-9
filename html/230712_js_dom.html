@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .rosybrown {
+            background-color: rosybrown;
+        }
+
+        .orangered {
+            background-color: orangered;
+        }
+
+        .yellowgreen {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="box rosybrown" id="rb">
+        <span>로지브라운</span>
+        <span>상자</span>
+    </div>
+
+    <div class="box orangered" id="or">
+
+    </div>
+
+    <div class="box yellowgreen" id="yg">
+
+    </div>
+    
+    <input type="password" name="pswd" />
+
+    <button type="button" onclick="rbToggle()">깜빡 깜빡</button>
+
+    <script>
+        // let rbBoxByID = document.getElementById('rb');
+        // console.log(rbBoxByID);
+        // let boxes = document.getElementsByClassName('box');
+        // console.log(boxes);
+
+        // let boxesByTag = document.getElementsByTagName("div");
+        // console.log(boxesByTag);
+
+        // let  input = document.getElementsByName('pswd');
+        // console.log(input);
+
+        // let boxesBySelector = document.querySelector(".box");
+        // console.log(boxesBySelector);
+
+        // let boxesBySelectorAll = document.querySelectorAll(".box");
+        // console.log(boxesBySelectorAll);
+
+        // let orangeredBySelectorAll = document.querySelectorAll("#or");
+        // console.log(orangeredBySelectorAll);
+
+        // document.write('안녕?');
+        // // rbBoxByID.innerText = "<span>abc</span>";
+        // // rbBoxByID.innerHTML = "<span>abc</span>";
+        // // rbBoxByID.textContent = "<span>abc</span>";
+        // // console.log(rbBoxByID.innerText);
+        // // console.log(rbBoxByID.innerHTML);
+        // // console.log(rbBoxByID.textContent);
+        
+        // // console.log(rbBoxByID.className);
+        // // rbBoxByID.className = "box yellowgreen";
+        // // rbBoxByID.className = "yellowgreen";
+
+        // console.log(rbBoxByID.classList.add())
+
+        function rbToggle() {
+            let rbBox = document.getElementById("rb");
+            // if (rbBox.classList.contains("rosybrown")) {
+            //     rbBox.classList.remove("rosybrown");
+            // } else {
+            //     rbBox.classList.add("rosybrown");
+            // }
+
+            rbBox.classList.toggle("rosybrown");
+
+            // classList 속성은 contains 함수 제공
+            // 괄호 안에 들어온 값이 클래스에 존재하는 지 검사
+            // true false return
+
+            // classList 속성은 remove 함수 제공
+            // 괄호 안에 들어온 값을 리스트 안에서 삭제
+
+            // classList 속성은 add 함수 제공
+            // 괄호 안에 들어온 값을 리스트 안에 추가 
+        }
+    </script>
+
+    <!-- <script>
+        let expired = new Date('2023-06-07');        
+        let now = new Date() // 2023-07-12 (수) 기준
+
+        console.log(now);
+        console.log(expired);
+        console.log(now.getFullYear()); // 2023
+        console.log(now.getMonth()+1); // 7
+        // 주의 getMonth는 실제 월-1 됨.
+        
+        console.log(now.getDate()); // 12
+        console.log(now.getDay()); // 3 => 요일을 숫자로 반환
+        console.log(now.getTime() >= expired.getTime());
+
+        let year = now.getFullYear();
+        let month = now.getMonth() + 1;
+        let date = now.getDate();
+        console.log(`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`);
+        console.log(`${year}-${month >= 10 ? month : "0"+month}-${date >= 10 ? date : '0'+date}`);
+
+        console.log(Math.PI);
+        console.log(Math.E);
+
+        console.log(Math.min(2, 5, 2, 3, 12, 4, 15, 3));
+        console.log(Math.max(2, 1, 4, 5, 1426, 3));
+        console.log(Math.random());
+        console.log(Math.round(8.5), Math.round(51.47));
+        console.log(Math.floor(8.5), Math.floor(51.47));
+        console.log(Math.ceil(8.5), Math.ceil(51.47));
+
+        console.log(Math.floor(Math.random() * (100 - 1) + 1));
+        
+    </script> -->
+</body>
+</html>

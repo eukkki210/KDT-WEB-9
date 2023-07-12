@@ -9,12 +9,12 @@
     <script>
 
         // continue
-        let fruit = ['apple', 'banana', 'orange', 'peach'];
-        for (let i = 0; i < fruit.length; i++) {
-            if (fruit[i] == "banana") {
+        let fruits = ['apple', 'banana', 'orange', 'peach'];
+        for (let i = 0; i < fruits.length; i++) {
+            if (fruits[i] == "banana") {
                 continue;
             }            
-            console.log(fruit[i]);
+            console.log(fruits[i]);
         }
 
         // 1~5의 합
@@ -36,39 +36,128 @@
         }
 
         let index = 0;
-        while (index < fruit.length) {
-            console.log(fruit[index]);
+        while (index < fruits.length) {
+            console.log(fruits[index]);
             index++;
         }
 
-        let num;
-        while (isNaN(num)) {
-            num = Number(prompt("숫자를 입력하세요"));
-            console.log(num);
-        }
+        // let num;
+        // while (isNaN(num)) {
+        //     num = Number(prompt("숫자를 입력하세요"));
+        //     console.log(num);
+        // }
 
-        let numbers;
-        while (true) {
-            numbers = Number(prompt("10 이상의 숫자를 입력하세요"))
-            if (numbers >= 10) {
-                break;
-            }
-        }
+        // let number1;
+        // while (true) {
+        //     number1 = Number(prompt("10 이상의 숫자를 입력하세요"))
+        //     if (number1 >= 10) {
+        //         break;
+        //     }
+        // }
         // isNan()
         // 사용자가 숫자를 입력하길 기대하면서,
         // 1~숫자까지의 합을 구하는 코드
 
         // 구구단 while 버전
-        let i = 2, j = 1;
+        // let i = 2, j = 1;
         
+        // while (i < 10) {
+        //     while (j < 10) {
+        //         console.log(i, "x", j, "=", i*j);
+        //         j++;
+        //     }
+        //     i++;
+        //     j = 1;
+        // } 
+
+        let i = 10;
         while (i < 10) {
-            while (j < 10) {
-                console.log(i, "x", j, "=", i*j);
-                j=+;
-            }
+            // 반복할 코드
+            console.log(i);
             i++;
-            j = 1;
-        } 
+        }
+
+        let j = 0;
+        do {
+            // 반복할 코드
+            console.log(j);
+            j++;
+        }
+        while (j < 10) {
+            
+        }
+
+        for (let fruit of fruits) {
+            console.log(fruit);
+        }
+
+        // forEach는 함수의 매개변수로 함수를 받음
+        fruits.forEach(function (data, index, arr) {
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
+
+        fruits.forEach((data, index, arr) => {
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
+
+        let numbers = [1, 2, 3, 4, 5, 6];
+        
+        numbers.forEach(function (number, index, array) {
+            console.log(number, index, array);
+        })
+
+        numbers.forEach((number, index, array) => {
+            console.log(number, index, array);
+        });
+        fruits.forEach(function (fruit, i, arr) {
+            console.log(fruit, i, arr);
+        });
+        
+        fruits.forEach((fruit, i, arr) => {
+            console.log(fruit, i, arr);
+        });
+        // for (변수선언 of 배열) {
+
+        // }
+
+    </script>
+
+    <script>
+        let str = 'Happy day~! ';
+        console.log(str.length);
+
+        // console.log(str.toUpperCase);
+        str.toUpperCase();
+        console.log(str);
+        console.log(str.toLowerCase());
+
+        console.log(str.indexOf('p'));
+        
+        console.log(str.slice(2, 5));
+
+        console.log(str.replace('p', 'a'));
+        console.log(str.replaceAll('p', 'a'));
+
+        console.log(str.repeat(3));
+
+        console.log(str.trim());
+
+        console.log(str.split(''));
+
+        let hello = "hello~";
+        helloReverse = hello.split("").reverse().join("");
+        // ["H", "e", 'l', 'l', "o", "~"]
+        // ['~', 'o', 'l', "l", "e", "H"]
+        // ~olleH
+        console.log(helloReverse);
+
+        console.log(hello.split("").reverse().join("//"));
+
+        console.log(fruits.reverse().join(""));
     </script>
 </body>
 </html>
