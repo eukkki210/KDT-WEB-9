@@ -20,29 +20,42 @@
         .yellowgreen {
             background-color: yellowgreen;
         }
+
+        .greenyellow {
+            background-color: greenyellow;
+        }
     </style>
 </head>
 <body>
-    <div class="box rosybrown" id="rb">
-        <span>로지브라운</span>
-        <span>상자</span>
-    </div>
-
-    <div class="box orangered" id="or">
-
-    </div>
-
-    <div class="box yellowgreen" id="yg">
-
-    </div>
+    <div class="container">
+        <div class="box rosybrown" id="rb">
+            <span>로지브라운</span>
+            <span>상자</span>
+        </div>
     
+        <div class="box orangered" id="or">
+    
+        </div>
+    
+        <div class="box yellowgreen" id="yg">
+    
+        </div>
+        
+    </div>
+
     <input type="password" name="pswd" />
 
-    <button type="button" onclick="rbToggle()">깜빡 깜빡</button>
+    <button type="button" onclick="rbToggle()">깜빡 깜빡 1</button>
+
+    <button type="button" onclick="orToggle()">깜빡 깜빡 2</button>
+
+    <button type="button" onclick="createGreenyellowBox()">생겨라!</button>
+    <button type="button" onclick="removeBox()">사라져라!</button>
+
 
     <script>
-        // let rbBoxByID = document.getElementById('rb');
-        // console.log(rbBoxByID);
+        let rbBoxByID = document.getElementById('rb');
+        console.log(rbBoxByID);
         // let boxes = document.getElementsByClassName('box');
         // console.log(boxes);
 
@@ -77,13 +90,16 @@
 
         function rbToggle() {
             let rbBox = document.getElementById("rb");
+            rbBox.classList.toggle("rosybrown");
+            // classList 속성은 toggle 함수 제공
+            // 괄호 안에 들어온 값이 리스트 안에 존재하는 지 알아서 판단
+            // 괄호 안에 들어온 값을 자동으로 추가하거나 삭제함.
+
             // if (rbBox.classList.contains("rosybrown")) {
             //     rbBox.classList.remove("rosybrown");
             // } else {
             //     rbBox.classList.add("rosybrown");
             // }
-
-            rbBox.classList.toggle("rosybrown");
 
             // classList 속성은 contains 함수 제공
             // 괄호 안에 들어온 값이 클래스에 존재하는 지 검사
@@ -95,6 +111,51 @@
             // classList 속성은 add 함수 제공
             // 괄호 안에 들어온 값을 리스트 안에 추가 
         }
+
+        function orToggle() {
+            let orBox = document.getElementById("or");
+            orBox.classList.toggle("orangered");
+        }
+
+        function createGreenyellowBox() {
+            let createBox = document.createElement("div");
+            createBox.className = "box greenyellow";
+
+            // 요소.append()
+            // container.append(createBox);
+            // 부모요소(container)에 마지막 자식으로 괄호 안의 요소를 추가
+
+            // container.appendChild(createBox);
+
+            // container.append("<div>안녕?</div>");
+                        
+            // appnd는 매겨변수로 문자열과 노드객체를 모두 받을 수 있다.
+            // appendChild 매개변수로 노드객체만 받을 수 있다.
+
+            // container.prepend(createBox);
+            // 부모요소(container)에 첫번째 자식으로 괄호 안의 요소를 추가
+
+            // orBox.before(createBox);
+            orBox.after(createBox);
+        }
+
+        function removeBox() {
+            let orBox = document.getElementById("or");
+            // orBox.remove()
+            container.removeChild(orBox);
+        }
+
+        // rbBoxByID.setAttribute("class", "box orangered");
+
+        let container = document.querySelector(".container");
+        // console.log(container);
+        console.log(container.children[container.children.length-1]);
+        console.log(rbBoxByID.parentNode);
+        console.log(rbBoxByID.nextElementSibling);
+
+        let orBox = document.getElementById("or");
+        console.log(orBox.previousElementSibling);
+
     </script>
 
     <!-- <script>

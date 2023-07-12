@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 계산기 만들기</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>값1: <input type="text" id="value1"></div>
+    <div>값2: <input type="text" id="value2"></div>
+    <div>연산자: <input type="text" id="operator"></div>
+    <div>결과: <input type="text" id="result"></div>
+    <br />
+    <button type="button" onclick="calculator()">계산하기</button>
+    <button type="button" onclick="clearInput()">초기화</button>
+
+    <script>
+        function calculator() {
+            let value1 = Number(document.getElementById("value1").value);
+            let value2 = Number(document.getElementById("value2").value);
+            let operator = document.getElementById("operator").value;
+            
+            if (operator == "+") {
+                let result = value1 + value2;
+                document.getElementById('result').value = result;
+            } else if (operator == "-") {
+                let result = value1 - value2;
+                document.getElementById('result').value = result;
+            } else if (operator == "*") {
+                let result = value1 * value2;
+                document.getElementById('result').value = result;
+            } else if (operator == "/") {
+                let result = value1 / value2;
+                document.getElementById('result').value = result;
+            } else if (operator == "%") {
+                let result = value1 % value2;
+                document.getElementById('result').value = result;
+            } else {
+                alert('올바른 연산자를 입력해주세요.')
+            }
+        }
+
+        function clearInput() {
+            document.getElementById("value1").value = null;
+            document.getElementById("value2").value = null;
+            document.getElementById("operator").value = null;
+            document.getElementById("result").value = null;
+        }
+    </script>
+</body>
+</html>
