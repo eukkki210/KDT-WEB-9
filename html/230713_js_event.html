@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            height: 2000px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', ()=>{
+        let div = document.querySelector("div");
+        div.style.marginLeft = "100px"
+    });
+    </script>
+</head>
+<body>
+    <!-- 일반적으로 만들어져있는 경우에는 onclick -->
+    <!-- <div onclick="aaa()"></div> -->
+    <button type="button" >버튼</button>
+    <input type="text" name="id" placeholder="id를 입력해주세요." />
+    <input type="password" name="pw" id="pw" placeholder="비밀번호를 입력해주세요." />
+    <input type="password" name="pw_check" id="pw_check" placeholder="비밀번호를 다시 입력해주세요." />
+    <div style="width: 100px; height: 100px; background-color: royalblue;"></div>
+
+    <div class="container">
+        <input type="text" name="id" id="id">
+        <input type="password" name="pw" id="pw">
+    </div>
+    <button type="button">버튼</button>
+    <script>
+        // function aaa() {
+            
+        // }
+        let button = document.querySelector("button");
+
+        // console.log(button);
+
+        // // 추가할 때
+        // let btn = document.createElement("button");
+
+        button.addEventListener("click", function() {
+            alert("클릭!");
+        })
+
+        // button.addEventListener("mouseover", function() {
+        //     alert("클릭!");
+        // })
+
+        // button.addEventListener("mouseout", function() {
+        //     alert("클릭!");
+        // })
+
+        // button.addEventListener("mousedown", function() {
+        //     alert("클릭!");
+        // })
+
+        // button.addEventListener("mouseup", function() {
+        //     alert("클릭!");
+        // })
+        
+        // css로 할 수 있으면 css로
+        // let input = document.querySelectorAll("input");
+        // for (let i = 0; i < input.length; i++) {
+        //     input[i].addEventListener("blur", (e) => [
+        //         e.currentTarget.style.backgroundColor = "black"
+        //     ])        
+            
+        //     input[i].addEventListener("blur", (e) => [
+        //         e.currentTarget.style.backgroundColor = "initial"
+        //     ])    
+        // }
+
+        // focus: 입력할 수 있는 상태
+        // input.addEventListener("focus", (e) => [
+        //     // console.log(target.currentTarget)
+        //     e.currentTarget.style.backgroundColor = "black" 
+            // input.style.backgroundColor = "black"
+        // ])
+
+    //     input.addEventListener("blur", (e) => [
+    //         // console.log(target.currentTarget)
+    //         e.currentTarget.style.backgroundColor = "black" 
+    //         // input.style.backgroundColor = "black"
+    //     ])
+
+    let input = document.getElementById("pw")
+    input.addEventListener("keyup", (e)=>{
+        // console.log(e.key)
+        if (e.key == "Enter") {
+            alert("로그인!")
+        }
+    })
+    
+    document.getElementById("pw_check").addEventListener("change", (e)=>{
+        if (input.value == e.currentTarget.value) {
+            alert("같다!");
+        } else {
+            alert("다르다");
+        }
+    })
+    
+    window.addEventListener("resize", ()=>{
+        // console.log(document.innerWidth)
+        if (window.innerWidth >= 400) {
+            console.log("크다");
+        }
+    })
+    // load: 태그들이 다 작성이 됐다 (요소들이 다 만들어 진 후)
+    // window.addEventListener('load', ()=>{
+    //     let div = document.querySelector("div");
+    //     div.style.marginLeft = "100px"
+    // });
+    
+    $(window).ready(function () {
+        $(".container").append(`<h1> 안녕 </h1>`)
+    });
+
+    // $(function() { // 페이지 로드 완료 후에 실행되는 함수
+    //     $(".container").append(`<h1> 안녕 </h1>`)
+    //     $(".container").append(`<h1> <h/1>`)
+    // })
+
+    // $().on('click', function() {
+    //     alert("클릭!")
+    // })
+
+    // $("button").click(function() {
+    //     alert("클릭!")
+    // })
+
+    // hover 요소 영역에 마우스가 올라가 있는 동안
+    // $("button").hover(function() {
+    //     alert("클릭!")
+    // })
+
+    // 요소 영역에 마우스가 올라가는 순간
+    $("button").mouseover(function() {
+        alert("클릭!")
+    })
+
+    $(window).scroll(function() {
+        console.log("scrolling");
+    })
+
+    // $("input").keydown(function(e) {
+    //     console.log(e.key === "Enter");
+    // })
+
+    $("input").keyup(function(e) {
+        console.log(this); // this: == e.currentTarget; 화살표 함수 블가능
+        console.log(e.key === "Enter");
+    })
+    </script>
+</body>
+</html>

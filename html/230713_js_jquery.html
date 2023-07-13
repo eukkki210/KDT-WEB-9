@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            transition: all 2s;
+            color: whitesmoke;
+        }
+        
+        .saddlebrown {
+            background-color: saddlebrown;
+        }
+
+        .orchid {
+            background-color: orchid;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- <input type="text" name="id" id="id"/>
+    <input type="password" name="password" id="pw"/>
+    <button onclick="submitId()">바껴라!</button>
+    <button onclick="btn2()">사라져라!</button>
+
+    <div></div>
+    <div></div>
+
+    <div class="container">
+        <div class="saddlebrown"></div>
+        <div class="orchid"></div>
+        <div class="saddlebrown"></div>
+    </div>
+
+    <button onclick="fn3()">요소 탐색</button> -->
+    
+    <div class="box orchid"></div>
+    <button type="button" onclick="switchColor()">바껴라!</button>
+
+    <div class="container"></div>
+
+    <script>
+        $("input").val("aaaa");
+        
+        function submitId() {
+            // let valueJQuery = $("#id").val();
+            // let valueJS = document.getElementById("id").value; // 바닐라 js
+            // console.log(valueJQuery, valueJS);
+
+            // document.getElementById("id").value = "aaa";  // 바닐라 js
+            $("#id").val("aaa");
+
+            // css 변경
+            // $("div").css('background-color', "blue");
+            $("div").css("border-radius", '20px');
+
+            // attr 함수
+            $("input").attr("placeholder", "아이디 입력하세요.");
+
+            // text 함수 .innerText
+            $('div').text('안녕?');
+
+            // html 함수 .innerHTML
+            $("div").html("<p>Hi</p>")
+
+            // append 함수
+            // let h1 = document.createElement("h1");
+            // h1.innerText = "안녕?";
+            // document.querySelector("div").append(h1);
+            $("div").append("<h1>안녕?</h1>");
+            // $("div").appendchild("<h1>안녕?</h1>"); // 바닐라 js
+
+            // prepend 함수
+            $("div").prepend("<h1>안녕?</h1>");
+
+            // after 함수
+            $("div").after("<h1>안녕?</h1>");
+
+            // befoee 함수
+            $("div").before("<h1>안녕?</h1>");
+
+            // empty 함수
+            $("div").empty();
+
+            // remove 함수
+            // $("div").remove();
+
+            // addClass 함수
+            $("div").addClass('saddlebrown')
+        }
+        
+        function btn2() {
+            // remove 함수
+            // class=""
+            // $("div").remove();
+            // $("div").removeClass("saddlebrown");
+
+            // hasClass 함수
+            console.log($("div").hasClass("saddlebrown"));
+
+            // toggleClass 함수
+            $("div").toggleClass('saddlebrown');
+        }
+
+        function fn3() {
+            // console.log($(".container").children().removeClass("saddlebrown"))
+
+            console.log($(".orchid").parent());
+            console.log($(".orchid").parents(".container"));
+            console.log($(".orchid").next());
+            console.log($(".orchid").prev());
+
+            console.log($(".saddlebrown").nextAll());
+            console.log($(".saddlebrown").prevAll(".orchid"));
+        }
+
+        function switchColor() {
+            $(".box").switchClass("orchid", "saddlebrown", 1500)
+        }
+
+        $(window).ready(function () {
+        $(".container").append(`<h1> 안녕 </h1>`)
+    });
+
+    // $(function() {
+    //     $(".container").append(`<h1> 안녕 </h1>`)
+    //     $(".container").append(`<h1> <h/1>`)
+    // })
+        
+    </script>
+</body>
+</html>
