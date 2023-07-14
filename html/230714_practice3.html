@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크기에 따라 자리 바꾸기</title>
+    <style>
+        .container {
+
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        
+        @media screen and (min-width: 700px) {
+            .container {
+                display: flex;
+            }
+
+            .box {
+                background-color: black;                
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .container {
+                display: inline;
+            }
+
+            .box {
+                background-color: skyblue;                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

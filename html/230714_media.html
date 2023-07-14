@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: ivory;
+            color: yellowgreen;
+        }
+
+        .box {font-size: 100px;}
+
+        /* @media 유형 and (크기 조건) {} */
+        /* 유형 : screen, print, all */
+        /* 크기 조건 : max, min-width/ max, min-height */
+        /* max-width : 오른쪽에 나온 숫자 값 이하일 때 */
+        /* min-width : 오른쪽에 나온 숫자 값 이상일 때 */
+        /* @media screen and (max-width: 700px) {
+            body {
+                background-color: grey;
+                font-family: serif;
+            }
+        } */
+
+        /* css : 나중에 읽히는게 우선순위 높음 */
+        /* @media screen and (max-width: 300px) {
+            body {
+                background-color: blue;
+                font-family: serif;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                background-color: aliceblue;
+                font-family: serif;
+            }
+        } */
+
+        /* @media screen and (min-width: 300px) {
+            body {
+                background-color: antiquewhite;
+            }
+        }
+
+        @media screen and (min-width: 500px) {
+            body {
+                background-color: honeydew;
+            }
+        } */
+
+        @media screen and (orientation: landscape) {
+            body {
+                background-color: blueviolet;
+            }
+        }
+
+        @media screen and (orientation: portrait) {
+            body {
+                background-color: salmon;
+            }
+        }
+
+        /* @media print {
+            .box {
+                display: none;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="box">hi</div>
+</body>
+</html>

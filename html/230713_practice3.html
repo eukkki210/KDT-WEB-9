@@ -8,13 +8,34 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <style>
         table {
-            width: 100%;
+            width: 90%;
             height: 700px;
         }
 
         h1 {
             color: green;
             text-align: center;
+        }
+
+        td {
+            width: 200px;
+            height: 100px;
+            color: black;
+            vertical-align: top;
+        }
+
+        /* tr > td:first-child > p,
+        tr > th:first-child {
+            color: red;
+        }
+        tr > td:last-child > p,
+        tr > th:last-child {
+            color: blue;
+        } */
+
+        p:hover {
+            transform: scale(1.2);
+            cursor: pointer;
         }
 
         .sun {
@@ -37,7 +58,7 @@
 
     <table>
         <thead><h1>2022년 7월</h1></thead>
-        <tbody>
+        <tbody align="center">
             <tr>
                 <td class="sun">日</td>
                 <td>月</td>
@@ -48,65 +69,67 @@
                 <td class="sat">土</td>
             </tr>
             <tr>
-                <td class="sun"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="sat">1</td>
+                <td class="sun"><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+                <td class="sat"><p>1</p></td>
             </tr>
             <tr>
-                <td class="sun">2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td class="sat">8</td>
+                <td class="sun"><p>2</p></td>
+                <td><p>3</p></td>
+                <td><p>4</p></td>
+                <td><p>5</p></td>
+                <td><p>6</p></td>
+                <td><p>7</p></td>
+                <td class="sat"><p>8</p></td>
             </tr>
             <tr>
-                <td class="sun">9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td class="sat">15</td>
+                <td class="sun"><p>9</p></td>
+                <td><p>10</p></td>
+                <td><p>11</p></td>
+                <td><p>12</p></td>
+                <td><p>13</p></td>
+                <td><p>14</p></td>
+                <td class="sat"><p>15</p></td>
             </tr>
             <tr>
                 <td class="sun">16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-                <td class="sat">22</td>
+                <td><p>17</p></td>
+                <td><p>18</p></td>
+                <td><p>19</p></td>
+                <td><p>20</p></td>
+                <td><p>21</p></td>
+                <td class="sat"><p>22</p></td>
             </tr>
             <tr>
-                <td class="sun">23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-                <td class="sat">29</td>
+                <td class="sun"><p>23</p></td>
+                <td><p>24</p></td>
+                <td><p>25</p></td>
+                <td><p>26</p></td>
+                <td><p>27</p></td>
+                <td><p>28</p></td>
+                <td class="sat"><p>29</p></td>
             </tr>
             <tr>
-                <td class="sun">30</td>
-                <td>31</td>
+                <td class="sun"><p>30</p></td>
+                <td><p>31</p></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td class="sat"></td>
             </tr>
-        </tbody>
+        </tbody> 
     </table>
     
     <div></div>
     <script>
+        let td = null;
         $("td").on("click", function(){
+            td = this;
             let date = $(this).text();
             $('.date').val(date);
         });
@@ -115,8 +138,26 @@
             let date = Number($(".date").val());
             let content = $(".content").val();
 
-            console.log($(".td")[date+13]);
+            $(td).append(content);
         })
-    </script>
+
+        // 해설
+    //     $("td > p").on("click", function(e){
+    //         // console.log(this);
+    //         // console.log(e.currentTarget);
+    //         td = this;
+
+    //         // 1. 클릭한 요소의 날짜
+    //         let date = $(this).text();
+    //         // 2. input#date 선택해서 1번 값 넣기
+    //         $("#date").val(date);
+    //     })
+
+    //     $("button").on("click", function() {
+    //         let content = $("#content").val();
+    //         $(td).parent().append(`<div>${content}</div>`);
+    //         // console.log(td)
+    //     })
+    // </script>
 </body>
 </html>
