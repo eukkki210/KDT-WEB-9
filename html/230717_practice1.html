@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 문제1</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        .container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            /* grid-template-columns: 1fr 2fr 2fr 1fr; */
+            /* grid-template-areas: 
+            'header header header  header'
+            'aside1 section1 section1  aside2'
+            'aside1 section2  section3 aside2'
+            'footer footer  footer footer'; */
+        }
+
+        .item {
+            display: grid;
+            place-items: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .one {
+            order: 1;
+            background-color: #F94144;
+            grid-column: 1 / 7;
+        }
+
+        .two {
+            order: 2;
+            background-color: #F3722c;
+            grid-row: 2 / 4;
+        }
+
+        .three {
+            order: 3;
+            background-color: #F9C74F;
+            grid-column: 2 / 6;
+        }
+
+        .four {
+            order: 4;
+            background-color: #43AA8B;
+            grid-row: auto / span 2;
+        }
+
+        .five {
+            order: 5;
+            background-color: #F8961E;
+            grid-column: 2 / 4;
+        }
+
+        .six {
+            order: 6;
+            background-color: #90BE6D;
+            grid-column: 4 / 6;
+        }
+
+        .seven {
+            order: 7;
+            background-color: #4444FF;
+            grid-column: 1 / 7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item one">#F94144</div>
+        <div class="item two">#F3722c</div>
+        <div class="item three">#F9C74F</div>
+        <div class="item four">#43AA8B</div>
+        <div class="item five">#F8961E</div>
+        <div class="item six">#90BE6D</div>
+        <div class="item seven">#4444FF</div>
+    </div>
+</body>
+</html>
