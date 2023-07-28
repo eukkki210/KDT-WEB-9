@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="/">메인으로 이동하기</a>
+    <br>
+    <a href="caterpillar">애벌레로 이동하기</a>
+    <br>
+    <a href="changeimage">이미지바꾸기로 이동하기</a>
+
+    <!-- <% for(let i=0; i< name.length; i++){ %>
+        <% console.log(`---${name[i]}단---`); %>
+        <% for(let j=1; j<10; j++){ %>
+            <% console.log(`${name[i]}x${j} = ${name[i]*j}`) %>
+        <% } %>
+    <% } %> -->
+    <% for(let i=0; i< name.length; i++){ %>
+        <h4>
+            <%=name[i]%>단
+        </h4>
+        <% for(let j=1; j<10; j++){ %>
+            <%=name[i]%>x<%=j%>=<%=name[i]*j%>
+        </br>
+        <% } %>
+    <% } %>
+</body>
+
+</html>
