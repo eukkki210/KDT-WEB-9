@@ -34,7 +34,7 @@ app.get('/getInfo', (req, res) => {
     });
 });
 
-app.get('/practice1Result', (req, res) => {
+app.get('/getResult', (req, res) => {
     console.log(req.query);
     res.render('practice1Result', {
         title: "get요청 폼 결과 확인하기",
@@ -57,7 +57,7 @@ app.get('/postInfo', (req, res) => {
     });
 });
 
-app.get('/practice2Result', (req, res) => {
+app.get('/postResult', (req, res) => {
     console.log(req.query);
     res.render('practice2Result', {
         title: "post요청 폼 결과 확인하기",
@@ -65,7 +65,7 @@ app.get('/practice2Result', (req, res) => {
     });
 });
 
-
+// 서버오픈
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });
