@@ -12,31 +12,29 @@ exports.getVisitors = (req, res) => {
 };
 
 exports.getVisitor = (req, res) => {
-    // Visitor.getVisitor((result) => {
-    //     console.log(result);
-    // })
-    res.send('방명록 하나 조회');
+    const id = req.query.id;
+    Visitor.getVisitor(id, (result) => {
+        console.log(result);
+        res.render('visitor', { data: result });
+    })
 };
 
 exports.createVisitor = (req, res) => {
-    const name = req.body.name;
-    const comment = req.body.comment;
-
-    Visitor.createVisitor({ name, comment }, (rows) => {
-        res.send({ id: rows.insertId, name: req.body.name, comment: req.body.comment });
+    Visitor.createVisitor(req.body, (result) => {
+        res.send({ id: result.insertId, name: req.body.name, comment: req.body.comment });
     })
 };
 
 exports.updateVisitor = (req, res) => {
-    const name = req.body.name;
-    const comment = req.body.comment;
-
-    Visitor.updateVisitor({ id, name, comment }, (rows) => {
-        res.send({ id: rows.insertId, name: req.body.name, comment: req.body.comment });
+    Visitor.updateVisitor(req.body, () => {
+        res.send({ result: true });
     })
-    res.send('방명록 하나 수정');
 };
 
 exports.deleteVisitor = (req, res) => {
-    res.send('방명록 하나 삭제');
+    const id = req.body.id;
+
+    Visitor.deleteVisitor(id, () => {
+        res.send({ result: true });
+    })
 };

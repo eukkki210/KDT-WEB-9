@@ -20,7 +20,8 @@ exports.getVisitors = (cb) => {
     const query = `SELECT * FROM visitor`;
     conn.query(query, (err, rows) => {
         if (err) {
-            throw err;
+            console.log(err);
+            return;
         }
 
         console.log('rows: ', rows);
@@ -28,35 +29,51 @@ exports.getVisitors = (cb) => {
     });
 };
 
-// exports.getVisitor = (cb) => {
-//     conn.query(`SELECT  FROM visitor`, (err, rows) => {
-//         if (err) {
-//             throw err;
-//         }
+exports.getVisitor = (id, cb) => {
+    console.log("id", id);
+    const query = `SELECT * FROM visitor WHERE id=${id}`;
 
-//         console.log('Visitor.js: ', rows);
-//         cb(rows);
-//     });
-// };
-
-exports.createVisitor = (visitorData, cb) => {
-    const { name, comment } = visitorData;
-    const query = `INSERT INTO visitor (name, comment) values (?, ?)`;
-    conn.query(query, [name, comment], (err, rows) => {
+    conn.query(query, (err, rows) => {
         if (err) {
-            throw err;
+            console.log(err);
+            return;
+        }
+
+        console.log('rows: ', rows);
+        cb(rows);
+    });
+};
+
+exports.createVisitor = (data, cb) => {
+    const query = `INSERT INTO visitor (name, comment) values ('${data.name}', '${data.comment}')`;
+    conn.query(query, (err, rows) => {
+        if (err) {
+            console.log(err);
+            return;
         }
         console.log('rows: ', rows);
         cb(rows);
     });
 };
 
-exports.updateVisitor = (visitorData, cb) => {
-    const { id, name, comment } = visitorData;
-    const query = `UPDATE visitor SET name=?, comment=? where id=?`;
-    conn.query(query, [name, comment], (err, rows) => {
+exports.updateVisitor = (data, cb) => {
+    const query = `UPDATE visitor SET name='${data.name}', comment='${data.comment}' where id=${data.id}`;
+    conn.query(query, (err, rows) => {
         if (err) {
-            throw err;
+            console.log(err);
+            return;
+        }
+        console.log('rows: ', rows);
+        cb(rows);
+    });
+};
+
+exports.deleteVisitor = (id, cb) => {
+    const query = `DELETE FROM visitor WHERE id=${id}`;
+    conn.query(query, (err, rows) => {
+        if (err) {
+            console.log(err);
+            return;
         }
         console.log('rows: ', rows);
         cb(rows);

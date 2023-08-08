@@ -11,6 +11,10 @@ app.use(express.json());
 const indexRouter = require('./routes');
 app.use('/', indexRouter);
 
+// localhost:8000/visitor
+const visitorRouter = require('./routes/visitor');
+app.use('/visitor', visitorRouter);
+
 app.use('*', (req, res) => {
     res.render('404');
 })
