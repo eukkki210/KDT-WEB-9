@@ -42,8 +42,6 @@ exports.getUser = (data, cb) => {
     });
 };
 
-
-
 exports.editProfile = (data, cb) => {
     const query = `UPDATE user SET userid='${data.userid}', name='${data.name}', pw='${data.pw}' where id=${data.id}`;
     conn.query(query, (err, rows) => {

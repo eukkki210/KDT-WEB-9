@@ -13,28 +13,32 @@
     <h1>
         <%= title %>
     </h1>
+    <a href="/user">홈으로 이동</a>
     <form name="profile">
-        <input type="hidden" name="id" id="id" value="<%= userInfo.id %>">
+        <input type="hidden" id="id" value="<%= userInfo.id %>">
         <label for="userid">아이디: </label>
-        <input type="text" name="userid" id="userid" value="<%= userInfo.userid %>">
+        <input type="text" id="userid" value="<%= userInfo.userid %>" readonly>
         <br />
         <label for="name">이름: </label>
-        <input type="text" name="name" id="name" value="<%= userInfo.name %>">
+        <input type="text" id="name" value="<%= userInfo.name %>">
         <br />
         <label for="pw">비밀번호: </label>
-        <input type="password" name="pw" id="pw" value="<%= userInfo.pw %>">
+        <input type="password" id="pw" value="<%= userInfo.pw %>">
+        <br />
         <br />
         <button type="button" onclick="editProfile()">수정</button>
-        <br />
-        <button type="button" onclick="deleteProfile()">삭제</button>
+        <button type="button" onclick="deleteProfile('<%= userInfo.id %>')">삭제</button>
+        <div class="result"></div>
         <br />
     </form>
 
     <script>
         function editProfile() {
+            const resultBox = document.querySelector('.result');
+
             const form = document.forms['profile'];
             const data = {
-                id: form.id.value,
+                id: Number(form.id.value),
                 userid: form.userid.value,
                 name: form.name.value,
                 pw: form.pw.value,
@@ -48,12 +52,15 @@
                 data: data,
             }).then((res) => {
                 if (res.data.result) {
-                    window.location.reload();
+                    resultBox.textContent = '프로필 수정 성공';
+                    resultBox.style.color = 'blue';
                 };
             });
         };
 
         function deleteProfile(id) {
+            const resultBox = document.querySelector('.result');
+
             const form = document.forms['profile'];
 
             if (!confirm('삭제하시겠습니까?')) {
@@ -69,7 +76,9 @@
             }).then(res => {
                 console.log('res', res);
                 if (res.data.result) {
-                    window.location.reload();
+                    resultBox.textContent = '프로필 삭제 성공';
+                    resultBox.style.color = 'red';
+                    window.location.href = '/user';
                 };
             });
         };

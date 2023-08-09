@@ -22,13 +22,14 @@
         </div>
         <br />
         <button type="button" onclick="login()">로그인</button>
+        <button type="button"><a href="/user/signup" style="text-decoration: none; color: black;">회원 가입</a></button>
         <br />
         <div class="result"></div>
     </form>
     <form action="/user/profile" method="post" name="form_profile">
         <input type="hidden" name="id" />
-        <input type="hidden" name="userid"/>
-        <input type="hidden" name="pw"/>
+        <input type="hidden" name="userid" />
+        <input type="hidden" name="pw" />
     </form>
 
     <script>
@@ -61,7 +62,9 @@
                 } else {
                     resultBox.textContent = '로그인 실패';
                     resultBox.style.color = 'red';
-                    loginForm.submit();
+                    // window.location.href = '/user/signin';
+                    // window.location.reload();
+                    loginForm.reset();
                 };
             });
         };
