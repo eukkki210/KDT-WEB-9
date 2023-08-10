@@ -7,7 +7,8 @@ exports.main = (req, res) => {
 // 전체 방명록 조회
 exports.getVisitors = (req, res) => {
     models.Visitor.findAll().then(result => {
-        res.render('visitor', { data: result });
+        // res.render('visitor', { data: result });
+        res.send({ data: result })
     });
 };
 
