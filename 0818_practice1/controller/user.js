@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+const jwtSecret = 'secretKey';
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
 
@@ -23,13 +25,23 @@ exports.getLogin = (req, res) => {
 exports.postLogin = async (req, res) => {
     try {
         const { userid, pw } = req.body;
-        console.log(pw);
         const user = await User.findOne({ where: { userid } });
-        console.log(user.pw);
+
+        console.log('User:', user);
+
         const compare = comparePassword(pw, user.pw);
-        res.json({ compare });
+
+        if (!compare) {
+            return res.status(401).json({ message: 'Incorrect username or password.' });
+        }
+
+        const token = jwt.sign({ id: user.id, name: user.name, userid: user.userid }, jwtSecret);
+
+        console.log(token);
+        res.json({ token });
     } catch (error) {
         console.log(error);
+        return res.status(500).json({ message: 'Internal server error.' });
     }
 };
 
@@ -42,12 +54,37 @@ exports.postSignup = async (req, res) => {
         const { userid, name, pw } = req.body;
 
         hash = bcryptPassword(pw);
-        console.log(hash)
 
         const user = await User.create({ userid: userid, name: name, pw: hash });
-        console.log(user);
+
         res.json({ result: true });
     } catch (error) {
         console.log(error);
+    }
+};
+
+exports.renderProfile = (req, res) => {
+    console.log(req.headers.authorization);
+    const token = req.headers.authorization;
+
+    if (!token) {
+        res.status(401).json({ message: 'Authentication failed. Token is missing.' });
+    } else {
+        const tokenParts = token.split(' ');
+
+        if (tokenParts.length !== 2 || tokenParts[0] !== 'Bearer') {
+            res.status(401).json({ message: 'Authentication failed. Invalid token format.' });
+        } else {
+            const jwtToken = tokenParts[1];
+
+            jwt.verify(jwtToken, jwtSecret, (err, decoded) => {
+                if (err) {
+                    res.status(401).json({ message: 'Authentication failed. Token is invalid.' });
+                } else {
+                    const user = decoded;
+                    res.render('profile', { user });
+                }
+            });
+        }
     }
 };

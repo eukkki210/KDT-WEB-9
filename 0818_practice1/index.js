@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const PORT = 8000;
 const db = require('./models');
@@ -8,6 +9,7 @@ app.set('view engine', 'ejs');
 //body-parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 //router
 const userRouter = require('./routes/user');

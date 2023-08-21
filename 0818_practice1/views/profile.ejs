@@ -1,0 +1,37 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>프로필</title>
+</head>
+
+<body>
+    <h1>프로필 페이지</h1>
+    <p>안녕하세요, <%= user.name %>님!</p>
+    <p>사용자 아이디: <%= user.userid %>
+    </p>
+    <script>
+        async function loadProfile() {
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                try {
+                    const profileRes = await axios.get('/user/profile', {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+                } catch (error) {
+                    console.error('프로필 요청 오류:', error);
+                }
+            } else {
+                console.error('토큰이 없습니다.');
+            }
+        }
+
+        loadProfile();
+    </script>
+</body>
+
+</html>

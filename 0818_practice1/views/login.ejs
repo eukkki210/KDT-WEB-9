@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Document</title>
+    <title>로그인</title>
 </head>
 
 <body>
@@ -28,6 +28,8 @@
     </form>
 
     <script>
+        const jwtSecret = 'secretKey';
+
         $("#signin").keypress(function (e) {
             if (e.keyCode === 13) {
                 login();
@@ -36,7 +38,6 @@
 
         async function login() {
             const resultBox = document.querySelector('.result');
-
             const loginForm = document.forms['signin'];
 
             const data = {
@@ -44,21 +45,39 @@
                 pw: loginForm.pw.value,
             };
 
-            console.log(data);
+            try {
+                const res = await axios({
+                    method: 'POST',
+                    url: '/login',
+                    data: data,
+                });
+                console.log('Received response:', res);
 
-            const res = await axios({
-                method: 'POST',
-                url: '/login',
-                data: data,
-            })
-            if (res.data.compare) {
-                resultBox.textContent = '로그인 성공';
-                resultBox.style.color = 'blue';
-            } else {
-                resultBox.textContent = '로그인 실패';
-                resultBox.style.color = 'red';
-                loginForm.reset();
-            };
+                const token = res.data.token;
+                console.log('Received JWT token:', token);
+
+                if (token) {
+                    localStorage.setItem('token', token);
+
+                    const headers = {
+                        Authorization: `Bearer ${token}`,
+                    };
+
+                    try {
+                        const profileRes = await axios.get('/user/profile', { headers });
+
+                        window.location.href = '/user/profile';
+                    } catch (error) {
+                        console.error('프로필 요청 오류:', error);
+                    }
+                } else {
+                    resultBox.textContent = '로그인 실패' + res.data.message;
+                    resultBox.style.color = 'red';
+                    loginForm.reset();
+                };
+            } catch (error) {
+                console.error('로그인 요청 오류:', error);
+            }
         }
     </script>
 </body>
