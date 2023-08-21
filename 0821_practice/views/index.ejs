@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>파일 업로드</title>
+</head>
+
+<body>
+    <div>동적 폼 전송으로 파일 여러 개 올리기</div>
+    <form onsubmit="fileupload(event)">
+        <input type="file" name="userfiles" id="userfiles" multiple /><br />
+        <input type="text" name="title" id="title" /><br />
+        <button type="submit">업로드</button>
+    </form>
+    <br />
+    <div class="result"></div>
+
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        async function fileupload(event) {
+            event.preventDefault();
+            console.log('fileupload');
+            const title = document.querySelector('#title').value;
+            const file = document.querySelector('#userfiles');
+            console.log(file.files);
+            const formData = new FormData();
+
+            for (let i = 0; i < file.files.length; i++) {
+                formData.append('title', title.value);
+                formData.append('userfiles', file.files[i]);
+            }
+
+            console.log(file.files.length);
+
+            const res = await axios({
+                method: 'POST',
+                url: '/upload',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('res', res);
+
+            for (let i = 0; i < res.data.length; i++) {
+                resultBox.innerHTML += `<img src=${res.data[i].path} />`;
+            }
+
+        };
+    </script>
+</body>
+
+</html>
