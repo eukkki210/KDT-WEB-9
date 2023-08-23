@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>전체 회원 리스트</h1>
+    <a href="/">홈으로 이동하기</a>
+
+    <ul>
+        <% for (let i=0; i < lists.length; i++) { %>
+            <li>
+                <b>
+                    <%= lists[i].name %>
+                </b>
+                <b>
+                    <%= lists[i].gender %>
+                </b>
+                <b>
+                    <%= lists[i].major %>
+                </b>
+            </li>
+            <% } %>
+    </ul>
+
+    <form name="addMember">
+        <div>
+            <input type="text" id="name" placeholder="이름">
+        </div>
+        <div>
+            <input type="text" id="gender" placeholder="성별">
+        </div>
+        <div>
+            <input type="text" id="major" placeholder="전공">
+        </div>
+        <br />
+        <button type="button" onclick="axiosPost()">회원 정보 추가</button>
+        <br />
+    </form>
+
+    <script>
+        async function axiosPost() {
+            // console.log('axios post');
+            const form = document.forms['addMember'];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                major: form.major.value
+            };
+
+            const res = await axios({
+                method: 'POST',
+                url: '/members',
+                data: data
+            });
+
+            console.log('res', res.data);
+            window.location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
