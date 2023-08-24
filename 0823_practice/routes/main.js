@@ -4,10 +4,14 @@ const controller = require('../controller/Cmain');
 
 router.get('/', controller.main);
 
-// 회원 리스트 조회
+// 회원 가입
 router.get('/members', controller.members);
 
-// 회원 정보 추가
+// 로그인
 router.post('/members', controller.addMember);
+
+// 회원 정보
+router.get('/members/:id', controller.getMember);
+router.post('/members/edit', controller.modifyMember);
 
 module.exports = router;

@@ -8,18 +8,40 @@ const members = (req, res) => {
     res.render('members', { lists: Member });
 };
 
+const getMember = (req, res) => {
+    const id = Number(req.params.id);
+    console.log(id);
+    const member = Member.find((m) => m.id === id);
+    if (!member) {
+        return res.status(404).json({ error: 'Member not found' });
+    }
+    res.json(member);
+};
+
 const addMember = (req, res) => {
     const { name, gender, major } = req.body;
     const id = Member.length + 1; // 새로운 id 생성
     const newMember = { id, name, gender, major };
     Member.push(newMember);
     res.status(201).json(newMember);
-}
+};
+
+const modifyMember = (req, res) => {
+    const { name, gender, major } = req.body;
+    const member = Member.find((m) => m.name === name);
+    const memberIndex = member.id-1;
+    Member[memberIndex] = { ...Member[memberIndex], name, gender, major };
+    console.log(Member[memberIndex]);
+
+    res.json(Member[memberIndex]);
+};
 
 module.exports = {
     main,
     members,
-    addMember
+    addMember,
+    getMember,
+    modifyMember
 };
 
 // 모듈 사용 방법

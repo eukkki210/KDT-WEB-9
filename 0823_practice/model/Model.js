@@ -9,6 +9,14 @@ const conn = mysql.createConnection({
     port: 3306,
 });
 
+// 문자열 보간 방법
+// INSERT INTO user (userid, pw, name) VALUES (`'${data.userid}', '${data.pw}', '${data.name}'`)
+// 단점
+// 1. sql 인젝션 공격 취약
+// 2. 문자열에 특수문자가 포함될 경우 오류가 발생할 수도 있음.
+// Prepared STatement
+// INSERT INTO user (userid, pw, name) VALUES (?, ?, ?)
+
 const members = [
         {
             id: 1,
