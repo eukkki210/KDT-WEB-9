@@ -64,7 +64,12 @@
                     };
 
                     try {
-                        const profileRes = await axios.get('/user/profile', { headers });
+                        const profileRes = await axios.get(
+                            '/user/profile', {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
 
                         window.location.href = '/user/profile';
                     } catch (error) {
