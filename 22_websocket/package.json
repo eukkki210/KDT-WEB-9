@@ -1,19 +1,17 @@
 {
-  "name": "0811_session_practice",
+  "name": "22_websocket",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "express-session": "^1.17.3"
+    "ws": "^8.13.0"
   }
 }
