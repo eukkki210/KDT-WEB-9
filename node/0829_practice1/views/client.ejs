@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+
+    <div>
+        <button id="hello">hello</button>
+        <button id="study">study</button>
+        <button id="bye">bye</button>
+    </div>
+
+    <p></p>
+
+    <script>
+        const hello = document.querySelector('#hello');
+        const study = document.querySelector('#study');
+        const bye = document.querySelector('#bye');
+        const p = document.querySelector('p');
+
+        const socket = io();
+
+        hello.addEventListener('click', (e) => {
+            socket.emit('hello_message', { client: 'hello' });
+        });
+        study.addEventListener('click', (e) => {
+            socket.emit('study_message', { client: 'study' });
+        });
+        bye.addEventListener('click', (e) => {
+            socket.emit('bye_message', { client: 'bye' });
+        });
+
+        socket.on("backend_hello", (arg) => {
+            const span = document.createElement('span');
+            p.innerHTML = `${arg.client}: 안녕하세요`;
+        });
+
+        socket.on("backend_study", (arg) => {
+            const span = document.createElement('span');
+            p.innerHTML = `${arg.client}: 공부합시다!`;
+        });
+
+        socket.on("backend_bye", (arg) => {
+            const span = document.createElement('span');
+            p.innerHTML = `${arg.client}: 잘가~`;
+        });
+    </script>
+</body>
+
+</html>
