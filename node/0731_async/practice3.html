@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function turnRed() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'red';
+        //             resolve();
+        //         }, 1000)
+        //     })
+        // }
+
+        // function turnOrange() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'orange';
+        //             resolve();
+        //         }, 1000)
+        //     })
+        // }
+
+        // function turnYellow() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'yellow';
+        //             resolve();
+        //         }, 1000)
+        //     })
+        // }
+
+        // function turnGreen() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'green';
+        //             resolve();
+        //         }, 1000)
+        //     })
+        // }
+
+        // function turnBlue() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'blue';
+        //             resolve();
+        //         }, 1000)
+        //     })
+        // }
+
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+
+        function changeBgColor(color) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = color;
+                    resolve();
+                }, 1000);
+            })
+        }
+
+        async function exec() {
+            for (let i = 0; i < colors.length; i++) {
+                await changeBgColor(colors[i]);
+            }
+        }
+
+
+        // async function exec() {
+        //     await turnRed();
+        //     await turnOrange();
+        //     await turnYellow();
+        //     await turnGreen();
+        //     await turnBlue();
+        // };
+
+        exec();
+    </script>
+</body>
+
+</html>

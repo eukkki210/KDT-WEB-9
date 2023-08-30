@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>로그인</title>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <form name="signin" id="signin">
+        <div>
+            <input type="text" id="userid" placeholder="아이디">
+        </div>
+        <div>
+            <input type="password" id="pw" placeholder="비밀번호">
+        </div>
+        <br />
+        <button type="button" onclick="login()">로그인</button>
+        <button type="button"><a href="/signup" style="text-decoration: none; color: black;">회원 가입</a></button>
+        <br />
+        <div class="result"></div>
+    </form>
+
+    <script>
+        const jwtSecret = 'secretKey';
+
+        $("#signin").keypress(function (e) {
+            if (e.keyCode === 13) {
+                login();
+            }
+        });
+
+        async function login() {
+            const resultBox = document.querySelector('.result');
+            const loginForm = document.forms['signin'];
+
+            const data = {
+                userid: loginForm.userid.value,
+                pw: loginForm.pw.value,
+            };
+
+            try {
+                const res = await axios({
+                    method: 'POST',
+                    url: '/login',
+                    data: data,
+                });
+                console.log('Received response:', res);
+
+                const token = res.data.token;
+                console.log('Received JWT token:', token);
+
+                if (token) {
+                    localStorage.setItem('token', token);
+
+                    const headers = {
+                        Authorization: `Bearer ${token}`,
+                    };
+
+                    try {
+                        const profileRes = await axios.get(
+                            '/user/profile', {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+
+                        window.location.href = '/user/profile';
+                    } catch (error) {
+                        console.error('프로필 요청 오류:', error);
+                    }
+                } else {
+                    resultBox.textContent = '로그인 실패' + res.data.message;
+                    resultBox.style.color = 'red';
+                    loginForm.reset();
+                };
+            } catch (error) {
+                console.error('로그인 요청 오류:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>
