@@ -1,0 +1,23 @@
+.chat-container {
+    background-color: skyblue;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.right {
+    background-color: yellow;
+    color: black;
+    float: right;
+}
+
+.left {
+    background-color: white;
+    float: left;
+}
