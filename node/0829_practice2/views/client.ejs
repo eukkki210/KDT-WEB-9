@@ -5,17 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/socket.io/socket.io.js"></script>
-
-    <title>채팅창</title>
-</head>
-
-<body>
-    <ul class="chat-container" id="chatting"></ul>
-    <form id="chat">
-        <input type="text" id="message" />
-        <button>전송</button>
-    </form>
-
     <style>
         .chat-container {
             background-color: skyblue;
@@ -45,6 +34,17 @@
             float: left;
         }
     </style>
+    <title>채팅창</title>
+</head>
+
+<body>
+    <ul class="chat-container" id="chatting"></ul>
+    <form id="chat">
+        <input type="text" id="message" />
+        <button>전송</button>
+    </form>
+    <div id="userJoinInfo"></div>
+    
 
     <script>
         const chatForm = document.querySelector("#chat");
