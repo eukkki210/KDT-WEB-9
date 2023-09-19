@@ -28,7 +28,7 @@ function getUsersInRoom(room) {
             // io.sockets.sockes; socket.id가 할당한 변수들의 객체값
             //socket.id가 할당한 변수들의 객체값
             const userSocket = io.sockets.sockets.get(socketId);
-            // 개별 ㅅ용자에게 메세지를 보내기 위해서 객체형태로 변경
+            // 개별 사용자에게 메세지를 보내기 위해서 객체형태로 변경
             // key: 소켓아이디, name: 이름
             const info = { name: userSocket.user, key: socketId };
             users.push(info);

@@ -62,6 +62,14 @@
             display: inline-block;
             margin: 5px 0;
         }
+
+        .dm-chat {
+            background-color: lightblue;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -83,6 +91,7 @@
                 <p>채팅테스트(상대방)</p>
             </div>
             <div id="enterMessages" style="text-align: center;"></div>
+            <div id="dmMessages" style="text-align: center;"></div>
         </div>
         <form id="chat">
             <select id="userList"></select>
@@ -96,15 +105,24 @@
         const roomForm = document.querySelector('#room');
         const chatForm = document.querySelector('#chat');
         const msg = document.querySelector('#msg');
+        const enterMessages = document.querySelector('#enterMessages');
+        const dmMessages = document.querySelector('#dmMessages');
 
         let myName;
+        let selectedUser = 'all';
 
         socket.on('notice', (message) => {
-            const enterMessages = document.querySelector('#enterMessages');
             const div = document.createElement('div');
             div.textContent = message;
             div.classList.add('notice');
             enterMessages.appendChild(div);
+        });
+
+        socket.on('dmMessage', (message, author) => {
+            const div = document.createElement('div');
+            div.textContent = `${author} (DM): ${message}`;
+            div.classList.add('dm-chat');
+            dmMessages.appendChild(div);
         });
 
         //룸리스트
@@ -131,27 +149,32 @@
             lists.innerHTML = options;
         });
         //메세지 띄우기
-        socket.on('newMessage', (message, nick) => {
-            console.log(message, nick);
+        socket.on('newMessage', (message, author) => {
+            console.log(message, author);
             const div = document.createElement('div');
             const p = document.createElement('p');
-            if (myName === nick) {
-                //내가입력한 텍스트
+
+            if (myName === author) {
                 div.classList.add('my-chat');
             } else {
                 div.classList.add('other-chat');
             }
-            //채팅 텍스트
-            p.textContent = message;
+
+            // 채팅 텍스트
+            p.textContent = `${author} : ${message}`;
             div.appendChild(p);
             msg.appendChild(div);
         });
+
 
         ///폼 이벤트
         roomForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const roomName = roomForm.querySelector('#roomName');
             const userName = roomForm.querySelector('#userName');
+
+            myName = userName.value;
+
             if (roomName.value === '' || userName.value === '') {
                 alert('방이름과 닉네임 적어주세요');
                 return;
@@ -165,18 +188,33 @@
                 myName = userName.value;
             });
         });
+
+        document.querySelector('#userList').addEventListener('change', (e) => {
+            selectedUser = e.target.value;
+        });
+
         chatForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const user = document.querySelector('#userList');
-            const message = document.querySelector('#message');
-            console.log(user.value);
-            const msg = {
-                nick: myName,
-                user: user.value,
-                message: message.value,
-            };
-            socket.emit('sendMessage', msg);
-            message.value = '';
+            const messageInput = document.querySelector('#message');
+            const message = messageInput.value;
+
+            if (selectedUser === 'all') {
+                socket.emit('sendMessage', { message, author: myName, to: selectedUser });
+            } else {
+                socket.emit('sendDM', { message, author: myName, to: selectedUser });
+                console.log('Client sent DM:', { message, author: myName, to: selectedUser }); // 콘솔 로그 추가
+            }
+
+            messageInput.value = '';
+        });
+
+        socket.on('dmMessage', (message, author) => {
+            console.log(`Received DM: ${message} from ${author}`);
+
+            const div = document.createElement('div');
+            div.textContent = `${author} (DM): ${message}`;
+            div.classList.add('dm-chat');
+            dmMessages.appendChild(div);
         });
     </script>
 </body>
