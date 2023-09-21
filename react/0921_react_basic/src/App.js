@@ -1,3 +1,4 @@
+import LifeCycleClass from "./LifetCycleClass";
 import Practice1 from "./Practice1";
 import Practice2 from "./Practice2";
 import Practice3 from "./Practice3";
@@ -11,7 +12,8 @@ function App() {
       {/* <Practice2 /> */}
       {/* <Practice3 /> */}
       {/* <Practice4 /> */}
-      <Practice5 />
+      {/* <Practice5 /> */}
+      <LifeCycleClass />
     </>
   );
 }
