@@ -9,6 +9,7 @@ import Practice6 from "./Practice6";
 import './Practice1.css';
 import Event from "./Event";
 import EventClass from "./EventClass";
+import Counter from '../../0920_react_basic/src/Counter'
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       </div> */}
       {/* <Event />
       <EventClass /> */}
-      <Practice6 message={'메시지'} />
+      {/* <Practice6 message={'메시지'} /> */}
+      <Counter />
     </>
   );
 }

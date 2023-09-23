@@ -28,6 +28,7 @@ class Practice3 extends Component {
     }
 
     render() {
+        const { inputWriter, inputTitle, comments } = this.state;
         return <div>
             <div>
                 <form>

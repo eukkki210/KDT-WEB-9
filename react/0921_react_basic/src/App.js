@@ -1,4 +1,7 @@
-import LifeCycleClass from "./LifetCycleClass";
+import LifeCycleFunc from "./0922/LifeCycleFunc";
+import PostList from "./0922/Practice1";
+import UserList from "./0922/Practice2";
+import LifeCycleClass from "./LifeCycleClass";
 import Practice1 from "./Practice1";
 import Practice2 from "./Practice2";
 import Practice3 from "./Practice3";
@@ -13,7 +16,10 @@ function App() {
       {/* <Practice3 /> */}
       {/* <Practice4 /> */}
       {/* <Practice5 /> */}
-      <LifeCycleClass />
+      {/* <LifeCycleClass /> */}
+      {/* <LifeCycleFunc /> */}
+      {/* <PostList /> */}
+      <UserList />
     </>
   );
 }
