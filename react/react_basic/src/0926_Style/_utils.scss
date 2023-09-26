@@ -1,0 +1,58 @@
+// _utils.scss
+// scss 파일명 앞에 _를 붙여서 생성되면 파일 단위로 분리되어 컴파일 되지 않는다.
+
+$color-red: red;
+$color-orange: orange;
+$color-yellow: yellow;
+$color-green: forestgreen;
+$color-blue: blue;
+$color-navy: navy;
+$color-purple: purple;
+$color-pink: fuchsia;
+
+@mixin box($size) {
+    // # 기호를 이용하여 문자열 보간 사용
+    // @keyframes #{$name} {
+
+    // }
+
+    width: $size;
+    height: $size - 50px;
+}
+
+@mixin circle($color, $name, $move) {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $color;
+    position: relative;
+    animation: $name 2s linear infinite;
+
+    @keyframes #{$name} {
+        0% {
+            top: 0;
+            left: 0;
+        }
+
+        25% {
+            top: 0;
+            left: $move * 5px;
+        }
+
+        50% {
+            top: $move * 5px;
+            left: $move * 5px;
+        }
+
+        75% {
+            top: $move * 5px;
+            left: 0;
+        }
+
+        100% {
+            left: 0;
+            top: 0;
+        }
+    }
+
+}

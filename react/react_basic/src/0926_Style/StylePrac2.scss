@@ -1,0 +1,28 @@
+@import './utils.scss';
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 210px;
+
+    .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        animation-name: slide;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+
+        &.pink {
+            @include circle(pink, pink-ani, 10);
+        }
+
+        &.yellow {
+            @include circle(yellow, yellow-ani, 20);
+        }
+
+        &.green {
+            @include circle(green, green-ani, 30);
+        }
+    }
+}

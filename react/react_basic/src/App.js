@@ -17,6 +17,13 @@ import UseMemo from "./0925_Hook/UseMemo";
 import UseCallback from "./0925_Hook/UseCallback";
 import Counter from "./0925_Hook/UseReducer";
 import SignupForm from "./0925_Hook/UseReducerPrac";
+import Style from './0926_Style/Style'
+import SassComponent from "./0926_Style/SassComponent";
+// import StylePrac1 from "./0926_Style/StylePrac1";
+import StylePrac2 from "./0926_Style/StylePrac2";
+import StyledComponent from "./0926_Style/StyledComponent";
+import StyledComponentPrac1 from "./0926_Style/StyledComponentPrac1";
+import StyledComponentPrac2 from "./0926_Style/StyledComponentPrac2";
 
 function App() {
   return (
@@ -39,7 +46,14 @@ function App() {
       {/* <UseMemo /> */}
       {/* <UseCallback /> */}
       {/* <Counter /> */}
-      <SignupForm />
+      {/* <SignupForm /> */}
+      {/* <Style /> */}
+      {/* <SassComponent /> */}
+      {/* <StylePrac1 /> */}
+      {/* <StylePrac2 /> */}
+      {/* <StyledComponent /> */}
+      {/* <StyledComponentPrac1 /> */}
+      <StyledComponentPrac2 />
     </>
   );
 }

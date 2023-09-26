@@ -15,17 +15,25 @@ export default function UseCallback() {
 
     // useCallback 미사용
     const plusCount = () => {
-        setCount(() => count + 1);
+        console.log('plusCount', count);
+        setCount((prev) => prev + 1);
     };
 
     // useCallback 사용
+    // 반복해서 생성되는 이벤트 핸들의 함수를 useCallback으로 감싸줘서 하무를 메모이제이션
     const plusCountCallback = useCallback(() => {
-        setCount(() => count + 1);
-    }, [count]);
+        console.log('plusCountCallback', count);
+        setCount((prev) => prev + 1);
+    }, []);
+
+    const onChange = (e) => {
+        setInputValue(e.target.value);
+        plusCount();
+    };
 
     return (
         <>
-            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+            <input value={inputValue} onChange={(e) => onChange(e)} />
             <ChildComponent onClick={plusCountCallback} />
             <p>{count}</p>
         </>
