@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #118C00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 25px 20px;
+    padding-bottom: 5px;
+}
+
+.input-container input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.input-container button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-list-info {
+    font-size: 16px;
+    margin: 20px 20px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px;
+    padding-bottom: 10px;
+}
+
+.todo-item label {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.todo-item button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.todo-checkbox {
+    margin-right: 10px;
+}
+
+.todo-title {
+    flex: 1;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.todo-title.editing {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.todo-delete {
+    cursor: pointer;
+    color: #f44336;
+    margin-left: 10px;
+}
