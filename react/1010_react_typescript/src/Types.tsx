@@ -26,10 +26,15 @@ const Types: React.FC<Props> = (props) => {
 
     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => { };
 
+    const handleFocus = () => {
+        myInput.current?.focus();
+    }
+
     return (
         <>
             <h2>Hello {props.name}</h2>
             <input ref={myInput} />
+            <button onClick={handleFocus}>포커스버튼</button>
             <button onClick={(e) => onClick(e)}>버튼</button>
         </>
     )
