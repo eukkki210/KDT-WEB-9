@@ -6,6 +6,13 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
+  "product": {
+    "username": "admin",
+    "password": "inter!0719",
+    "database": "kdt-test",
+    "host": "kdt-test-seunggi.cj9qsrvx7lmq.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
   "test": {
     "username": "root",
     "password": null,
