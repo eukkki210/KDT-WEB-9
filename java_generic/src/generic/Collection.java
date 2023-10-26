@@ -1,11 +1,15 @@
 package generic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Collection {
@@ -39,6 +43,27 @@ public class Collection {
 		treeSet.add("C");
 		treeSet.add("A");
 		System.out.println(treeSet);
+		
+		// HashMap
+		Map<String, Integer> hashMap = new HashMap<>();
+		hashMap.put("one", 1);
+		hashMap.put("two", 2);
+		hashMap.put("three", 3);
+		System.out.println(hashMap);
+		System.out.println(hashMap.get("one"));
+		
+		// LinkedHashMap
+		Map<String, Integer> link = new LinkedHashMap<>();
+		link.put("two", 2);
+		link.put("three", 3);
+		link.put("one", 1);
+		System.out.println(link);
+		
+		// TreeMap
+		Map<String, Integer> treeMap = new TreeMap<>();
+		treeMap.put("C", 3);
+		treeMap.put("A", 1);
+		treeMap.put("B", 2);
 	}
 
 }
