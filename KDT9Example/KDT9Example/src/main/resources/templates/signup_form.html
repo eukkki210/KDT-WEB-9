@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>폼 전송 - 실습</title>
+</head>
+<body>
+<h1>폼 전송 - 실습</h1>
+<form id="signup-form">
+  <label for="name">이름</label>
+  <input type="text" id="name" name="name"><br>
+
+  <label>성별</label>
+  <input type="radio" name="gender" value="male"> 남성
+  <input type="radio" name="gender" value="female"> 여성
+  <br>
+
+  <label>생년월일</label>
+  <select id="year" name="year">
+    <!-- 생년월일 년도 옵션 추가 -->
+  </select>
+  <select id="month" name="month">
+    <!-- 생년월일 월 옵션 추가 -->
+  </select>
+  <select id="day" name="day">
+    <!-- 생년월일 일 옵션 추가 -->
+  </select>
+  <br>
+
+  <label>관심사</label>
+  <input type="checkbox" id="travel" name="interests" value="여행">
+  <label for="travel">여행</label>
+  <input type="checkbox" id="fashion" name="interests" value="패션">
+  <label for="fashion">패션</label>
+  <input type="checkbox" id="food" name="interests" value="음식">
+  <label for="food">음식</label>
+  <br>
+
+  <button id="submit-button" type="button" onclick="submitForm()">회원가입</button>
+</form>
+
+<script>
+  function submitForm() {
+    // 사용자 입력값 가져오기
+    const name = document.getElementById("name").value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const year = document.getElementById("year").value;
+    const month = document.getElementById("month").value;
+    const day = document.getElementById("day").value;
+    const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+            .map(input => input.value);
+
+    // 사용자 입력값을 객체로 만들기
+    const user = {
+      name: name,
+      gender: gender,
+      year: year,
+      month: month,
+      day: day,
+      interests: interests
+    };
+
+    // Axios를 사용하여 서버로 데이터 전송
+    axios.post("/information", user)
+            .then(response => {
+              alert("회원가입 성공!");
+            })
+            .catch(error => {
+              alert("회원가입 실패: " + error.message);
+            });
+  }
+</script>
+</body>
+</html>
